@@ -45,7 +45,7 @@ Optionally, run `load_packages.psql` to import sample data packages from the `pa
 
 ## Contents
 
-`pgtab` is organized into multiple postgres schemas (namespaces):
+Most of `pgtab` is organized into two schemas (namespaces):
 
 ```
 pgtab=> \dn+
@@ -53,10 +53,7 @@ pgtab=> \dn+
   Name   │  Owner   │  Access privileges   │       Description
 ─────────┼──────────┼──────────────────────┼──────────────────────────
  pgtab   │ stan     │                      │ pgtab: main
- pgtab_f │ stan     │                      │ pgtab: selected field
  pgtab_i │ stan     │                      │ pgtab: import json
- pgtab_p │ stan     │                      │ pgtab: selected package
- pgtab_r │ stan     │                      │ pgtab: selected resource
 ```
 
 The utility view `pgtab._ls` lists visible `pgtab` objects and their descriptions.
@@ -82,7 +79,7 @@ pgtab=> table _ls;
 
 ## `go()` – a psql UI
 
-The `go` procedure makes it easy to examine and edit selected package items with psql without repeatedly typing `WHERE` qualifiers, joins, or specifying columns.
+Other schemas (`pgtab_p`, `pgtab_r`, 'pgtab_f') are used by the `go` procedure, which makes it easy to examine and edit selected package items with psql without repeatedly typing `WHERE` qualifiers, joins, or specifying columns.
 
 :grey_exclamation: This procedure relies on session settings and is unlikely to work with most external tools.
 
