@@ -1,0 +1,330 @@
+{
+  "datahub": {
+    "created": "2017-11-09T01:28:08.817342",
+    "findability": "published",
+    "flowid": "core/eu-emissions-trading-system/13",
+    "hash": "53cbd8605f3faf312fee3647e4369fa2",
+    "modified": "2018-10-23T06:53:39.651196",
+    "owner": "core",
+    "ownerid": "core",
+    "stats": {
+      "bytes": 27538373,
+      "rowcount": 41915
+    }
+  },
+  "description": "Data about the EU emission trading system (ETS). The EU emission trading system (ETS) is one of the main measures introduced by the EU to achieve cost-efficient reductions of greenhouse gas emissions and reach its targets under the Kyoto Protocol and other commitments. The data mainly comes from the EU Transaction Log (EUTL). ",
+  "homepage": "http://www.eea.europa.eu/data-and-maps/data/european-union-emissions-trading-scheme-eu-ets-data-from-citl-7/",
+  "id": "core/eu-emissions-trading-system",
+  "licenses": [
+    {
+      "name": "ODC-PDDL-1.0",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License v1.0"
+    }
+  ],
+  "name": "eu-emissions-trading-system",
+  "readme": "Data about the EU emission trading system (ETS). The EU emission trading system (ETS) is one of the main measures introduced by the EU to achieve cost-efficient reductions of greenhouse gas emissions and reach its targets under the Kyoto Protocol and other commitments. The data mainly comes from the EU Transaction Log (EUTL).\n\n## Data\n\nAggregated data on greenhouse gas emissions and allowances. \n\n### Geographic coverage\n\nAustria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom\n\n### Temporal coverage\n\n2005-2014\n\n### Sources\n\n1. \n  * Name: European Union Emissions Trading System data from EUTL\n  * Web: http://www.eea.europa.eu/data-and-maps/data/european-union-emissions-trading-scheme-eu-ets-data-from-citl-7\n\n## Preparation\n\n### Requirements\n\nPython 2 together with modules urllib and zipfile are required in order to process the data. \n\n### Processing\n\nRun the following script from this directory to download and process the data:\n\n```bash\nmake\n```\n\n### Resources\n\nThe raw data are output to `./tmp`. The processed data are output to `./data`.\n\n## License\n\n### Data\n\nData are sourced from European Environment Agency and no copyright restrictions are applied. More specifically:\n> EEA aspires to promote the sharing of environmental data. In agreeing to share, data providers need to have assurance that their data are properly handled, disseminated and acknowledged following similar principles and rules across countries and stakeholders.[*][permissions]\n\n### Additional work\n\nAll the additional work done to build this Data Package is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: http://www.opendatacommons.org/licenses/pddl/1.0/\n\n\n### Citations\n\n1. EEA standard re-use policy: unless otherwise indicated, re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provided that the source is acknowledged (http://www.eea.europa.eu/legal/copyright). Copyright holder: Directorate-General for Climate Action (DG-CLIMA).\n\n[permissions]: http://www.eea.europa.eu/legal/eea-data-policy\n",
+  "resources": [
+    {
+      "bytes": 649,
+      "datahub": {
+        "type": "derived/report"
+      },
+      "description": "Validation report for tabular data",
+      "dpp:streamedFrom": "validation_report.json",
+      "format": "json",
+      "hash": "ae3d750aef60ed5d2bc69f93ba966e9e",
+      "name": "validation_report",
+      "path": "https://pkgstore.datahub.io/core/eu-emissions-trading-system/validation_report/data/ae3d750aef60ed5d2bc69f93ba966e9e/validation_report.json",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 5283228,
+      "datahub": {
+        "derivedFrom": [
+          "eu-ets"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/be962818629bd84c103fbe68ae64a0f4.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "c23b15dd88b91e57d0e30ec82869c9f0",
+      "mediatype": "text/csv",
+      "name": "eu-ets_csv",
+      "path": "https://pkgstore.datahub.io/core/eu-emissions-trading-system/eu-ets_csv/data/c23b15dd88b91e57d0e30ec82869c9f0/eu-ets_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 41915,
+      "schema": {
+        "fields": [
+          {
+            "description": "International Country Code (ISO 3166-1-Alpha-2 code elements)",
+            "name": "country_code",
+            "type": "string"
+          },
+          {
+            "description": "Country name",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "Main activity label",
+            "name": "main activity sector name",
+            "type": "string"
+          },
+          {
+            "description": "ETS information",
+            "name": "ETS information",
+            "type": "string"
+          },
+          {
+            "description": "Annual data mainly in YYYY format, but also may include stings Eg: Total 1st trading period (05-07)",
+            "name": "year",
+            "type": "string"
+          },
+          {
+            "decimalChar": ".",
+            "description": "measure value",
+            "groupChar": "",
+            "name": "value",
+            "type": "number"
+          },
+          {
+            "description": "Unit of the measure value (in tonne of CO2-equ.)",
+            "name": "unit",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 10349404,
+      "datahub": {
+        "derivedFrom": [
+          "eu-ets"
+        ],
+        "type": "derived/json"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/be962818629bd84c103fbe68ae64a0f4.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "8fcd5b2d1adb6eddc193447357c25c2f",
+      "mediatype": "text/csv",
+      "name": "eu-ets_json",
+      "path": "https://pkgstore.datahub.io/core/eu-emissions-trading-system/eu-ets_json/data/8fcd5b2d1adb6eddc193447357c25c2f/eu-ets_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 41915,
+      "schema": {
+        "fields": [
+          {
+            "description": "International Country Code (ISO 3166-1-Alpha-2 code elements)",
+            "name": "country_code",
+            "type": "string"
+          },
+          {
+            "description": "Country name",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "Main activity label",
+            "name": "main activity sector name",
+            "type": "string"
+          },
+          {
+            "description": "ETS information",
+            "name": "ETS information",
+            "type": "string"
+          },
+          {
+            "description": "Annual data mainly in YYYY format, but also may include stings Eg: Total 1st trading period (05-07)",
+            "name": "year",
+            "type": "string"
+          },
+          {
+            "description": "measure value",
+            "name": "value",
+            "type": "number"
+          },
+          {
+            "description": "Unit of the measure value (in tonne of CO2-equ.)",
+            "name": "unit",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 848369,
+      "datahub": {
+        "type": "derived/zip"
+      },
+      "description": "Compressed versions of dataset. Includes normalized CSV and JSON data with original data and datapackage.json.",
+      "dpp:streamedFrom": "/tmp/744.eu-emissions-trading-system.zip",
+      "format": "zip",
+      "name": "eu-emissions-trading-system_zip",
+      "path": "https://pkgstore.datahub.io/core/eu-emissions-trading-system/eu-emissions-trading-system_zip/data/0bf3c287e556d5d81de0e2b644362bf0/eu-emissions-trading-system_zip.zip",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 5773495,
+      "datahub": {
+        "derivedFrom": [
+          "eu-ets"
+        ],
+        "type": "derived/preview"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmpryc57icc/core/eu-emissions-trading-system/eu-ets_csv/data/c23b15dd88b91e57d0e30ec82869c9f0/eu-ets_csv.csv",
+      "encoding": "utf-8",
+      "forView": [
+        "datahub-preview-eu-ets_csv_preview"
+      ],
+      "format": "json",
+      "hash": "9942f5901fc3eb0a6ff34fcc3e7abaeb",
+      "mediatype": "text/csv",
+      "name": "eu-ets_csv_preview",
+      "path": "https://pkgstore.datahub.io/core/eu-emissions-trading-system/eu-ets_csv_preview/data/9942f5901fc3eb0a6ff34fcc3e7abaeb/eu-ets_csv_preview.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 43915,
+      "schema": {
+        "fields": [
+          {
+            "description": "International Country Code (ISO 3166-1-Alpha-2 code elements)",
+            "name": "country_code",
+            "type": "string"
+          },
+          {
+            "description": "Country name",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "Main activity label",
+            "name": "main activity sector name",
+            "type": "string"
+          },
+          {
+            "description": "ETS information",
+            "name": "ETS information",
+            "type": "string"
+          },
+          {
+            "description": "Annual data mainly in YYYY format, but also may include stings Eg: Total 1st trading period (05-07)",
+            "name": "year",
+            "type": "string"
+          },
+          {
+            "decimalChar": ".",
+            "description": "measure value",
+            "groupChar": "",
+            "name": "value",
+            "type": "number"
+          },
+          {
+            "description": "Unit of the measure value (in tonne of CO2-equ.)",
+            "name": "unit",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 5283228,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/be962818629bd84c103fbe68ae64a0f4.csv",
+      "encoding": "ISO-8859-1",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "eu-ets",
+      "path": "https://pkgstore.datahub.io/core/eu-emissions-trading-system/eu-ets/archive/be962818629bd84c103fbe68ae64a0f4/eu-ets.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "description": "International Country Code (ISO 3166-1-Alpha-2 code elements)",
+            "name": "country_code",
+            "type": "string"
+          },
+          {
+            "description": "Country name",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "Main activity label",
+            "name": "main activity sector name",
+            "type": "string"
+          },
+          {
+            "description": "ETS information",
+            "name": "ETS information",
+            "type": "string"
+          },
+          {
+            "description": "Annual data mainly in YYYY format, but also may include stings Eg: Total 1st trading period (05-07)",
+            "name": "year",
+            "type": "string"
+          },
+          {
+            "description": "measure value",
+            "name": "value",
+            "type": "number"
+          },
+          {
+            "description": "Unit of the measure value (in tonne of CO2-equ.)",
+            "name": "unit",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    }
+  ],
+  "sources": [
+    {
+      "name": "EU ETS data",
+      "path": "http://www.eea.europa.eu/data-and-maps/data/european-union-emissions-trading-scheme-eu-ets-data-from-citl-7/eu-ets-data-download-latest-version/citl_v19.zip/at_download/file",
+      "title": "EU ETS data"
+    }
+  ],
+  "title": "European Union Emissions Trading System (EU ETS) data from EUTL",
+  "version": "19",
+  "views": [
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-eu-ets_csv_preview",
+      "resources": [
+        "eu-ets"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    }
+  ]
+}

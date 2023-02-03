@@ -1,0 +1,25 @@
+-- ⚠️ DROPS pgtab schemas BEFORE (RE)BUILDING
+
+\set QUIET 'on'
+SET client_min_messages to 'error';
+
+ALTER DATABASE :DBNAME SET search_path TO pgtab;
+-- re-connect
+\c pgtab
+\set QUIET 'on'
+SET client_min_messages to 'error';
+
+-- SET search_path TO pgtab;
+
+\ir sql/01_pgtab.sql
+\ir sql/02_import.sql
+\ir sql/03_go.sql
+\ir sql/90_new.sql
+\ir sql/99_fiddle.sql
+
+SET search_path TO pgtab;
+
+\echo '✅ pgtab schemas installed'
+
+RESET client_min_messages;
+\set QUIET 'off'

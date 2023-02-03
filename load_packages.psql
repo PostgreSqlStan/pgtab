@@ -1,0 +1,98 @@
+/* load datapackage.json from directories in pgtab/packages
+ * for more info about loading methods see:
+ * https://postgresqlstan.github.io/postgresql/import-json-into-postgres/
+ */
+
+\set QUIET 1
+SET client_min_messages to 'error';
+SET search_path TO pgtab_i;
+
+-- use CSV method
+\COPY i_text FROM packages/airport-codes/datapackage.json csv quote e'\x01' delimiter e'\x02'
+CALL insert_imported();
+
+-- use \lo_import method
+BEGIN;
+\set filename packages/corruption-perceptions-index/datapackage.json
+\lo_import :filename
+\set obj :LASTOID
+INSERT INTO i_text
+  SELECT *
+    FROM convert_from(lo_get(:'obj'),'UTF8');
+\lo_unlink :obj
+COMMIT;
+CALL insert_imported();
+
+-- use \set psql variable method
+\set obj `cat packages/country-list/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/ex_minimal/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/eu-emissions-trading-system/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/gdp/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/household-income-us-historical/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/language-codes/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/oil-prices/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/s-and-p-500-companies/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/world-bank_sp.pop.totl/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/finance-vix/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/usa-education-budget-analysis/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/natural-gas/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/bond-yields-us-10y/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/bond-yields-uk-10y/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/world-cities/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+\set obj `cat packages/country-codes/datapackage.json`
+INSERT INTO i_json SELECT (:'obj')::jsonb;
+CALL insert_imported();
+
+
+\set obj
+set search_path to pgtab;
+RESET client_min_messages;
+\unset QUIET
+
+\echo '✅ sample data packages imported'
+table p;

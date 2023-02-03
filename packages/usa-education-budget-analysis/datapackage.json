@@ -1,0 +1,450 @@
+{
+  "datahub": {
+    "created": "2018-01-25T05:54:51.706591",
+    "findability": "published",
+    "flowid": "core/usa-education-budget-analysis/6",
+    "hash": "5354fd1b8d3bbe067b733485c9ca4767",
+    "modified": "2018-03-15T06:42:39.409128",
+    "owner": "core",
+    "ownerid": "core",
+    "stats": {
+      "bytes": 320161,
+      "rowcount": 1733
+    }
+  },
+  "id": "core/usa-education-budget-analysis",
+  "licenses": [
+    {
+      "name": "odc-pddl",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and Licence (PDDL)"
+    }
+  ],
+  "name": "usa-education-budget-analysis",
+  "readme": "United States of America Education budget to GDP analysis\n\n## Data\n\nData comes from Office of Management and Budget, President’s Budget from white house official website on  https://www.whitehouse.gov/sites/whitehouse.gov/files/omb/budget/fy2018/hist05z2.xls\n\nIt consists of useful information about BUDGET AUTHORITY BY AGENCY in the range 1976–2022.\n\nGross Domestic Value(GDP) comes from DataHub http://datahub.io/core/gdp/r/gdp.csv since it is regularly updated and includes all country codes.\n\n*Note that data in `data/budget.csv` starting 2017, the value is estimate value*\n\n## Preparation\n\nThere are several steps have been done to get final data.\n\n* We extracted budget and gdp data separately\n* We merged and added new column `RATIO` which is calculated by `education expenditure / GDP`\n\nProcess is recorded and automated in python script:\n\n```\n# to get final data.csv\nscripts/process.py\n```\n\n## License\n\nPublic Domain Dedication and License (PDDL)",
+  "resources": [
+    {
+      "bytes": 1024,
+      "datahub": {
+        "type": "derived/report"
+      },
+      "description": "Validation report for tabular data",
+      "dpp:streamedFrom": "validation_report.json",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "b1021b33650b81e82b2a4fa49c76be50",
+      "name": "validation_report",
+      "path": "https://pkgstore.datahub.io/core/usa-education-budget-analysis/validation_report/data/b1021b33650b81e82b2a4fa49c76be50/validation_report.json",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 1404,
+      "datahub": {
+        "derivedFrom": [
+          "data"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/841f1d5e3a97f77f5e4c1f54ed182ab8.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "94fe8075113071b220f38ee3f3c1d467",
+      "mediatype": "text/csv",
+      "name": "data_csv",
+      "path": "https://pkgstore.datahub.io/core/usa-education-budget-analysis/data_csv/data/94fe8075113071b220f38ee3f3c1d467/data_csv.csv",
+      "profile": "tabular-data-resource",
+      "rowcount": 41,
+      "schema": {
+        "fields": [
+          {
+            "description": "Date in the form of %Y",
+            "format": "default",
+            "name": "YEAR",
+            "type": "year"
+          },
+          {
+            "decimalChar": ".",
+            "description": "in millions of dollars",
+            "format": "default",
+            "groupChar": "",
+            "name": "BUDGET_ON_EDUCATION",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "description": "in millions of dollars",
+            "format": "default",
+            "groupChar": "",
+            "name": "GDP",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "description": "education expenditure / GDP in percentage",
+            "format": "default",
+            "groupChar": "",
+            "name": "RATIO",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 72461,
+      "datahub": {
+        "derivedFrom": [
+          "budget"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/63e740fc5f07344cc3f0f2f82317e533.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "e1f21ece51266b251d4431c3c5bb9d79",
+      "mediatype": "text/csv",
+      "name": "budget_csv",
+      "path": "https://pkgstore.datahub.io/core/usa-education-budget-analysis/budget_csv/data/e1f21ece51266b251d4431c3c5bb9d79/budget_csv.csv",
+      "profile": "tabular-data-resource",
+      "rowcount": 1692,
+      "schema": {
+        "fields": [
+          {
+            "description": "Department or other unit",
+            "format": "default",
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "description": "Date in the form of %Y",
+            "format": "default",
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "description": "in millions of dollars",
+            "format": "default",
+            "name": "Value",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 3460,
+      "datahub": {
+        "derivedFrom": [
+          "data"
+        ],
+        "type": "derived/json"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/841f1d5e3a97f77f5e4c1f54ed182ab8.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "2d0c72b40876e5fe69b83a566dcd3b5f",
+      "mediatype": "text/csv",
+      "name": "data_json",
+      "path": "https://pkgstore.datahub.io/core/usa-education-budget-analysis/data_json/data/2d0c72b40876e5fe69b83a566dcd3b5f/data_json.json",
+      "profile": "tabular-data-resource",
+      "rowcount": 41,
+      "schema": {
+        "fields": [
+          {
+            "description": "Date in the form of %Y",
+            "format": "default",
+            "name": "YEAR",
+            "type": "year"
+          },
+          {
+            "description": "in millions of dollars",
+            "format": "default",
+            "name": "BUDGET_ON_EDUCATION",
+            "type": "number"
+          },
+          {
+            "description": "in millions of dollars",
+            "format": "default",
+            "name": "GDP",
+            "type": "number"
+          },
+          {
+            "description": "education expenditure / GDP in percentage",
+            "format": "default",
+            "name": "RATIO",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 126689,
+      "datahub": {
+        "derivedFrom": [
+          "budget"
+        ],
+        "type": "derived/json"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/63e740fc5f07344cc3f0f2f82317e533.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "9b7ee54433d3f681b68e295b633a61b3",
+      "mediatype": "text/csv",
+      "name": "budget_json",
+      "path": "https://pkgstore.datahub.io/core/usa-education-budget-analysis/budget_json/data/9b7ee54433d3f681b68e295b633a61b3/budget_json.json",
+      "profile": "tabular-data-resource",
+      "rowcount": 1692,
+      "schema": {
+        "fields": [
+          {
+            "description": "Department or other unit",
+            "format": "default",
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "description": "Date in the form of %Y",
+            "format": "default",
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "description": "in millions of dollars",
+            "format": "default",
+            "name": "Value",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 41258,
+      "datahub": {
+        "type": "derived/zip"
+      },
+      "description": "Compressed versions of dataset. Includes normalized CSV and JSON data with original data and datapackage.json.",
+      "dpp:streamedFrom": "/tmp/1.usa-education-budget-analysis.zip",
+      "encoding": "utf-8",
+      "format": "zip",
+      "name": "usa-education-budget-analysis_zip",
+      "path": "https://pkgstore.datahub.io/core/usa-education-budget-analysis/usa-education-budget-analysis_zip/data/913c6863804433637969623c8f91c5d2/usa-education-budget-analysis_zip.zip",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 1404,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/841f1d5e3a97f77f5e4c1f54ed182ab8.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "data",
+      "path": "https://pkgstore.datahub.io/core/usa-education-budget-analysis/data/archive/841f1d5e3a97f77f5e4c1f54ed182ab8/data.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "description": "Date in the form of %Y",
+            "format": "default",
+            "name": "YEAR",
+            "type": "year"
+          },
+          {
+            "description": "in millions of dollars",
+            "format": "default",
+            "name": "BUDGET_ON_EDUCATION",
+            "type": "number"
+          },
+          {
+            "description": "in millions of dollars",
+            "format": "default",
+            "name": "GDP",
+            "type": "number"
+          },
+          {
+            "description": "education expenditure / GDP in percentage",
+            "format": "default",
+            "name": "RATIO",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 72461,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/63e740fc5f07344cc3f0f2f82317e533.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "budget",
+      "path": "https://pkgstore.datahub.io/core/usa-education-budget-analysis/budget/archive/63e740fc5f07344cc3f0f2f82317e533/budget.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "description": "Department or other unit",
+            "format": "default",
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "description": "Date in the form of %Y",
+            "format": "default",
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "description": "in millions of dollars",
+            "format": "default",
+            "name": "Value",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "https://www.whitehouse.gov/sites/whitehouse.gov/files/omb/budget/fy2018/hist05z2.xls",
+      "title": "Office of Management and Budget, President’s Budget from white house official website"
+    },
+    {
+      "path": "http://datahub.io/core/gdp/r/gdp.csv ",
+      "title": "Country, Regional and World GDP (Gross Domestic Product), DataHub"
+    }
+  ],
+  "title": "United States of America education budget analysis",
+  "views": [
+    {
+      "name": "total-budget-usa-on-education",
+      "resources": [
+        {
+          "name": "budget",
+          "transform": [
+            {
+              "expression": "data['Name'] === 'Department of Education'",
+              "type": "filter"
+            }
+          ]
+        }
+      ],
+      "spec": {
+        "group": "Year",
+        "series": [
+          "Value"
+        ],
+        "type": "bar"
+      },
+      "specType": "simple",
+      "title": "Total budget USA on Education"
+    },
+    {
+      "name": "usa-education-budget-to-gdp",
+      "resources": [
+        "data"
+      ],
+      "spec": {
+        "group": "YEAR",
+        "series": [
+          "RATIO"
+        ],
+        "type": "bar"
+      },
+      "specType": "simple",
+      "title": "USA education budget to gdp"
+    },
+    {
+      "name": "total-budget-usa",
+      "resources": [
+        {
+          "name": "budget",
+          "transform": [
+            {
+              "expression": "data['Name'] === 'Total budget authority'",
+              "type": "filter"
+            }
+          ]
+        }
+      ],
+      "spec": {
+        "group": "Year",
+        "series": [
+          "Value"
+        ],
+        "type": "line"
+      },
+      "specType": "simple",
+      "title": "Total budget in USA"
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-data_csv_preview",
+      "resources": [
+        "data"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-budget_csv_preview",
+      "resources": [
+        "budget"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    }
+  ]
+}

@@ -1,0 +1,1501 @@
+{
+  "bytes": 415005,
+  "count_of_rows": 23125,
+  "datahub": {
+    "created": "2017-11-09T00:42:49.176844",
+    "findability": "published",
+    "flowid": "core/oil-prices/1025",
+    "hash": "8e1bd8a55db66192c1f329a99f7122dd",
+    "modified": "2023-01-23T02:16:29.791657",
+    "owner": "core",
+    "ownerid": "core",
+    "stats": {
+      "bytes": 3740787,
+      "rowcount": 23125
+    }
+  },
+  "descriptor": "A variety of temporal granularities for Europe Brent and WTI (West Texas Intermediate) Spot Prices.",
+  "hash": "a19c2b19176f0e7db172a1b51cd215b4",
+  "id": "core/oil-prices",
+  "keywords": [
+    "Oil",
+    "Brent",
+    "WTI",
+    "Oil Prices",
+    "eia",
+    "oil eia"
+  ],
+  "licenses": [
+    {
+      "name": "ODC-PDDL-1.0",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License v1.0"
+    }
+  ],
+  "name": "oil-prices",
+  "profile": "data-package",
+  "readme": "Europe Brent and WTI (Western Texas Intermediate) Spot Prices (Annual/ Monthly/ Weekly/ Daily) from EIA U.S. (Energy Information Administration).\n\n## Data\n\nThis series is available through the EIA open data API\n\n- [Europe Brent Spot Price FOB (Dollars per Barrel)](https://www.eia.gov/dnav/pet/hist/RBRTEd.htm) - From 20 May 1987 till today\n- [Cushing, OK WTI Spot Price FOB (Dollars per Barrel)](https://www.eia.gov/dnav/pet/hist/RWTCD.htm) - From 01 February 1986 till today\n\n### Definitions\n\n#### Brent\n> A blended crude stream produced in the North Sea region which serves as a reference or \"marker\" for pricing a number of other crude streams.\n[source](https://www.eia.gov/dnav/pet/TblDefs/pet_pri_spt_tbldef2.asp)\n\n#### West Texas Intermediate (WTI - Cushing)\n> A crude stream produced in Texas and southern Oklahoma which serves as a reference or \"marker\" for pricing a number of other crude streams and which is traded in the domestic spot market at Cushing, Oklahoma.\n[source](https://www.eia.gov/dnav/pet/TblDefs/pet_pri_spt_tbldef2.asp)\n\n## Preparation\n\nYou will need Python 3.6 or greater and dataflows library to run the script\n\nTo update the data run the process script locally:\n\n```\n# Install dataflows\npip install dataflows\n\n# Run the script\npython oil_prices_flow.py\n```\n\n## License\n\n> U.S. government publications are in the public domain and are not subject to copyright protection. You may use and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that are on our website or that you receive through our email distribution service. However, if you use or reproduce any of our information products, you should use an acknowledgment, which includes the publication date, such as: \"Source: U.S. Energy Information Administration (Oct 2008).\"\n\nYou may find further information [here](https://www.eia.gov/about/copyrights_reuse.cfm)\n\n### Additional work\n\n> All the additional work made to build this Data Package is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: http://www.opendatacommons.org/licenses/pddl/1.0/\n",
+  "resources": [
+    {
+      "bytes": 4014,
+      "datahub": {
+        "type": "derived/report"
+      },
+      "description": "Validation report for tabular data",
+      "dpp:streamedFrom": "validation_report.json",
+      "format": "json",
+      "hash": "c74f75b6c6311fc061a73744f24b8a1f",
+      "name": "validation_report",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/validation_report/data/c74f75b6c6311fc061a73744f24b8a1f/validation_report.json",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 324878,
+      "datahub": {
+        "derivedFrom": [
+          "brent-daily"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/3fbd657281e2741d7820dd902f77558d.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "037317d258edb8b5194974344953a426",
+      "mediatype": "text/csv",
+      "name": "brent-daily_csv",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-daily_csv/data/037317d258edb8b5194974344953a426/brent-daily_csv.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 9052,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 67026,
+      "datahub": {
+        "derivedFrom": [
+          "brent-week"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/c3513c0e7da92e6c37e924a806ce6fd5.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "a80610a879ad2ba39d502f9fb5170364",
+      "mediatype": "text/csv",
+      "name": "brent-week_csv",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-week_csv/data/a80610a879ad2ba39d502f9fb5170364/brent-week_csv.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 1862,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 15450,
+      "datahub": {
+        "derivedFrom": [
+          "brent-month"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/9d897b7567be83a90561d4714792354d.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "f88ab32fc9471c99aa66cf04c2b462aa",
+      "mediatype": "text/csv",
+      "name": "brent-month_csv",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-month_csv/data/f88ab32fc9471c99aa66cf04c2b462aa/brent-month_csv.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 428,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 1324,
+      "datahub": {
+        "derivedFrom": [
+          "brent-year"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/dc0c2e9a91a0494421ee1bd9813faecc.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "7278f025d91126b5a687463a801834d8",
+      "mediatype": "text/csv",
+      "name": "brent-year_csv",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-year_csv/data/7278f025d91126b5a687463a801834d8/brent-year_csv.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 36,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 334662,
+      "datahub": {
+        "derivedFrom": [
+          "wti-daily"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/5fe13859cc874511d999803ae0aa323c.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "3cc8789f3fc1a97461cdf9b2c7c9d25f",
+      "mediatype": "text/csv",
+      "name": "wti-daily_csv",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-daily_csv/data/3cc8789f3fc1a97461cdf9b2c7c9d25f/wti-daily_csv.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 9333,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 69368,
+      "datahub": {
+        "derivedFrom": [
+          "wti-week"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/9520ac92f0461488fc6b4dd871e54d01.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "90a75c29fe3da8b37b7fb184ed35eaee",
+      "mediatype": "text/csv",
+      "name": "wti-week_csv",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-week_csv/data/90a75c29fe3da8b37b7fb184ed35eaee/wti-week_csv.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 1933,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 15954,
+      "datahub": {
+        "derivedFrom": [
+          "wti-month"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/ef7ea97f8a513814915def5d68a14c2d.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "7054c88b3ce0778f59ef0c66bc7666eb",
+      "mediatype": "text/csv",
+      "name": "wti-month_csv",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-month_csv/data/7054c88b3ce0778f59ef0c66bc7666eb/wti-month_csv.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 444,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 1348,
+      "datahub": {
+        "derivedFrom": [
+          "wti-year"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/91461cbb00b49a4bac329606182814fa.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "3eebf9b94b4a2694ccb81896a4aa570c",
+      "mediatype": "text/csv",
+      "name": "wti-year_csv",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-year_csv/data/3eebf9b94b4a2694ccb81896a4aa570c/wti-year_csv.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 37,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 515245,
+      "datahub": {
+        "derivedFrom": [
+          "brent-daily"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/3fbd657281e2741d7820dd902f77558d.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "0993dcba4651130d91fc868c9dd2dc41",
+      "mediatype": "text/csv",
+      "name": "brent-daily_json",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-daily_json/data/0993dcba4651130d91fc868c9dd2dc41/brent-daily_json.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 9052,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 106163,
+      "datahub": {
+        "derivedFrom": [
+          "brent-week"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/c3513c0e7da92e6c37e924a806ce6fd5.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "baa39be468f7c20c19e1460895731e03",
+      "mediatype": "text/csv",
+      "name": "brent-week_json",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-week_json/data/baa39be468f7c20c19e1460895731e03/brent-week_json.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 1862,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 24433,
+      "datahub": {
+        "derivedFrom": [
+          "brent-month"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/9d897b7567be83a90561d4714792354d.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "d77e233a2ace99f6ece913806201ad20",
+      "mediatype": "text/csv",
+      "name": "brent-month_json",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-month_json/data/d77e233a2ace99f6ece913806201ad20/brent-month_json.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 428,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 2069,
+      "datahub": {
+        "derivedFrom": [
+          "brent-year"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/dc0c2e9a91a0494421ee1bd9813faecc.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "f1bdf1a22f1a71c88017769cd8c1c8c2",
+      "mediatype": "text/csv",
+      "name": "brent-year_json",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-year_json/data/f1bdf1a22f1a71c88017769cd8c1c8c2/brent-year_json.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 36,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 530846,
+      "datahub": {
+        "derivedFrom": [
+          "wti-daily"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/5fe13859cc874511d999803ae0aa323c.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "ad95b425aa16040746b2cdc1192f6dd8",
+      "mediatype": "text/csv",
+      "name": "wti-daily_json",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-daily_json/data/ad95b425aa16040746b2cdc1192f6dd8/wti-daily_json.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 9333,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 109996,
+      "datahub": {
+        "derivedFrom": [
+          "wti-week"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/9520ac92f0461488fc6b4dd871e54d01.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "8290ae2e4f2f17cb0c4b6477da08ea45",
+      "mediatype": "text/csv",
+      "name": "wti-week_json",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-week_json/data/8290ae2e4f2f17cb0c4b6477da08ea45/wti-week_json.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 1933,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 25275,
+      "datahub": {
+        "derivedFrom": [
+          "wti-month"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/ef7ea97f8a513814915def5d68a14c2d.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "9a9001045be68c8582c4f4382962d24e",
+      "mediatype": "text/csv",
+      "name": "wti-month_json",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-month_json/data/9a9001045be68c8582c4f4382962d24e/wti-month_json.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 444,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 2114,
+      "datahub": {
+        "derivedFrom": [
+          "wti-year"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/91461cbb00b49a4bac329606182814fa.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "6ad3e33782583df7fd00cb740a9e2977",
+      "mediatype": "text/csv",
+      "name": "wti-year_json",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-year_json/data/6ad3e33782583df7fd00cb740a9e2977/wti-year_json.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 37,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 360862,
+      "datahub": {
+        "type": "derived/zip"
+      },
+      "description": "Compressed versions of dataset. Includes normalized CSV and JSON data with original data and datapackage.json.",
+      "dpp:streamedFrom": "/tmp/660.oil-prices.zip",
+      "format": "zip",
+      "name": "oil-prices_zip",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/oil-prices_zip/data/447fd5c3d62bca2a19ba71e5ca682260/oil-prices_zip.zip",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 402318,
+      "datahub": {
+        "derivedFrom": [
+          "brent-daily"
+        ],
+        "type": "derived/preview"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmp_aho3xjw/core/oil-prices/brent-daily_csv/data/037317d258edb8b5194974344953a426/brent-daily_csv.csv",
+      "encoding": "utf-8",
+      "forView": [
+        "datahub-preview-brent-daily_csv_preview"
+      ],
+      "format": "json",
+      "hash": "d3add1acbbe5cb71ac8f77d8704c4c92",
+      "mediatype": "text/csv",
+      "name": "brent-daily_csv_preview",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-daily_csv_preview/data/d3add1acbbe5cb71ac8f77d8704c4c92/brent-daily_csv_preview.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 11052,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 412437,
+      "datahub": {
+        "derivedFrom": [
+          "wti-daily"
+        ],
+        "type": "derived/preview"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmp_aho3xjw/core/oil-prices/wti-daily_csv/data/3cc8789f3fc1a97461cdf9b2c7c9d25f/wti-daily_csv.csv",
+      "encoding": "utf-8",
+      "forView": [
+        "datahub-preview-wti-daily_csv_preview"
+      ],
+      "format": "json",
+      "hash": "0d7b280605a41b3ee8765f4490cb34da",
+      "mediatype": "text/csv",
+      "name": "wti-daily_csv_preview",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-daily_csv_preview/data/0d7b280605a41b3ee8765f4490cb34da/wti-daily_csv_preview.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 11333,
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 162439,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/3fbd657281e2741d7820dd902f77558d.csv",
+      "encoding": "ISO-8859-2",
+      "format": "csv",
+      "hash": "3fbd657281e2741d7820dd902f77558d",
+      "mediatype": "text/csv",
+      "name": "brent-daily",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-daily/archive/3fbd657281e2741d7820dd902f77558d/brent-daily.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 33513,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/c3513c0e7da92e6c37e924a806ce6fd5.csv",
+      "encoding": "ISO-8859-2",
+      "format": "csv",
+      "hash": "c3513c0e7da92e6c37e924a806ce6fd5",
+      "mediatype": "text/csv",
+      "name": "brent-week",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-week/archive/c3513c0e7da92e6c37e924a806ce6fd5/brent-week.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 7725,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/9d897b7567be83a90561d4714792354d.csv",
+      "encoding": "ISO-8859-2",
+      "format": "csv",
+      "hash": "9d897b7567be83a90561d4714792354d",
+      "mediatype": "text/csv",
+      "name": "brent-month",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-month/archive/9d897b7567be83a90561d4714792354d/brent-month.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 662,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/dc0c2e9a91a0494421ee1bd9813faecc.csv",
+      "encoding": "ISO-8859-2",
+      "format": "csv",
+      "hash": "dc0c2e9a91a0494421ee1bd9813faecc",
+      "mediatype": "text/csv",
+      "name": "brent-year",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/brent-year/archive/dc0c2e9a91a0494421ee1bd9813faecc/brent-year.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 167331,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/5fe13859cc874511d999803ae0aa323c.csv",
+      "encoding": "ISO-8859-2",
+      "format": "csv",
+      "hash": "5fe13859cc874511d999803ae0aa323c",
+      "mediatype": "text/csv",
+      "name": "wti-daily",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-daily/archive/5fe13859cc874511d999803ae0aa323c/wti-daily.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 34684,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/9520ac92f0461488fc6b4dd871e54d01.csv",
+      "encoding": "ISO-8859-2",
+      "format": "csv",
+      "hash": "9520ac92f0461488fc6b4dd871e54d01",
+      "mediatype": "text/csv",
+      "name": "wti-week",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-week/archive/9520ac92f0461488fc6b4dd871e54d01/wti-week.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 7977,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/ef7ea97f8a513814915def5d68a14c2d.csv",
+      "encoding": "ISO-8859-2",
+      "format": "csv",
+      "hash": "ef7ea97f8a513814915def5d68a14c2d",
+      "mediatype": "text/csv",
+      "name": "wti-month",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-month/archive/ef7ea97f8a513814915def5d68a14c2d/wti-month.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 674,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/91461cbb00b49a4bac329606182814fa.csv",
+      "encoding": "ISO-8859-2",
+      "format": "csv",
+      "hash": "91461cbb00b49a4bac329606182814fa",
+      "mediatype": "text/csv",
+      "name": "wti-year",
+      "path": "https://pkgstore.datahub.io/core/oil-prices/wti-year/archive/91461cbb00b49a4bac329606182814fa/wti-year.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Price",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    }
+  ],
+  "sources": [
+    {
+      "name": "Daily Europe Brent Spot Price",
+      "path": "https://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls",
+      "title": "Daily Europe Brent Spot Price"
+    },
+    {
+      "name": "Weekly Europe Brent Spot Price",
+      "path": "https://www.eia.gov/dnav/pet/hist_xls/RBRTEw.xls",
+      "title": "Weekly Europe Brent Spot Price"
+    },
+    {
+      "name": "Monthly Europe Brent Spot Price",
+      "path": "https://www.eia.gov/dnav/pet/hist_xls/RBRTEm.xls",
+      "title": "Monthly Europe Brent Spot Price"
+    },
+    {
+      "name": "Annual Europe Brent Spot Price",
+      "path": "https://www.eia.gov/dnav/pet/hist_xls/RBRTEa.xls",
+      "title": "Annual Europe Brent Spot Price"
+    },
+    {
+      "name": "Daily Cushing, OK WTI Spot Price",
+      "path": "http://www.eia.gov/dnav/pet/hist_xls/RWTCd.xls",
+      "title": "Daily Cushing, OK WTI Spot Price"
+    },
+    {
+      "name": "Weekly Cushing, OK WTI Spot Price",
+      "path": "http://www.eia.gov/dnav/pet/hist_xls/RWTCw.xls",
+      "title": "Weekly Cushing, OK WTI Spot Price"
+    },
+    {
+      "name": "Monthly Cushing, OK WTI Spot Price",
+      "path": "http://www.eia.gov/dnav/pet/hist_xls/RWTCm.xls",
+      "title": "Monthly Cushing, OK WTI Spot Price"
+    },
+    {
+      "name": "Annual Cushing, OK WTI Spot Price",
+      "path": "http://www.eia.gov/dnav/pet/hist_xls/RWTCa.xls",
+      "title": "Annual Cushing, OK WTI Spot Price"
+    }
+  ],
+  "title": "Brent and WTI Spot Prices",
+  "views": [
+    {
+      "name": "graph",
+      "resourceName": "brent-day",
+      "spec": {
+        "group": "Date",
+        "series": [
+          "Brent Spot Price"
+        ],
+        "type": "line"
+      },
+      "specType": "simple",
+      "title": "Europe Brent Spot Price FOB (Dollars per Barrel)"
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-brent-daily_csv_preview",
+      "resources": [
+        "brent-daily"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-brent-week_csv_preview",
+      "resources": [
+        "brent-week"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-brent-month_csv_preview",
+      "resources": [
+        "brent-month"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-brent-year_csv_preview",
+      "resources": [
+        "brent-year"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-wti-daily_csv_preview",
+      "resources": [
+        "wti-daily"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-wti-week_csv_preview",
+      "resources": [
+        "wti-week"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-wti-month_csv_preview",
+      "resources": [
+        "wti-month"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-wti-year_csv_preview",
+      "resources": [
+        "wti-year"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    }
+  ]
+}

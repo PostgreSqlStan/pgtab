@@ -1,0 +1,248 @@
+{
+  "bytes": 13819,
+  "count_of_rows": 808,
+  "datahub": {
+    "created": "2017-11-08T23:58:32.636869",
+    "findability": "published",
+    "flowid": "core/bond-yields-us-10y/136",
+    "hash": "2dcb84a317c9b8e20fc5c6d10e45f8b4",
+    "modified": "2020-08-31T00:00:31.029540",
+    "owner": "core",
+    "ownerid": "core",
+    "stats": {
+      "bytes": 99470,
+      "rowcount": 808
+    }
+  },
+  "hash": "e367671e5e9a8c83dd8471dc893d3ca5",
+  "id": "core/bond-yields-us-10y",
+  "licenses": [
+    {
+      "id": "odc-pddl",
+      "name": "open_data_commons_public_domain_dedication_and_license_v1.0",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License v1.0"
+    }
+  ],
+  "name": "bond-yields-us-10y",
+  "profile": "data-package",
+  "readme": "10 year nominal yields on US government bonds from the Federal Reserve. The 10\nyear government bond yield is considered a standard indicator of long-term\ninterest rates.\n\n## Data\n\nData comes from the [Release H.15 from the Federal Reserve - Selected Interest\nRates Daily][fed] specifically the [10 year US Treasury (monthly,\ncsv)][fed-csv].\n\n[fed]: http://www.federalreserve.gov/releases/h15/data.htm\n[fed-csv]: http://www.federalreserve.gov/datadownload/Output.aspx?rel=H15&series=0809abf197c17f1ff0b2180fe7015cc3&lastObs=&from=&to=&filetype=csv&label=include&layout=seriescolumn\n\n## Preparation\n\nYou will need Python 3.6 or greater and dataflows library to run the script\n\nTo update the data run the process script locally:\n\n```\n# Install dataflows\npip install dataflows\n\n# Run the script\npython flows/run.py\n```\n\nNote we keep a copy of the raw data from the Federal Reserve (pre-tidying) in\n`archive`.\n\n# License\n\nLicensed under the [Public Domain Dedication and License][pddl] (assuming\neither no rights or public domain license in source data).\n\n[pddl]: http://opendatacommons.org/licenses/pddl/1.0/\n",
+  "resources": [
+    {
+      "bytes": 431,
+      "datahub": {
+        "type": "derived/report"
+      },
+      "description": "Validation report for tabular data",
+      "dpp:streamedFrom": "validation_report.json",
+      "format": "json",
+      "hash": "6759c77d41a77c297f1c4b32840031b3",
+      "name": "validation_report",
+      "path": "https://pkgstore.datahub.io/core/bond-yields-us-10y/validation_report/data/6759c77d41a77c297f1c4b32840031b3/validation_report.json",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 27638,
+      "count_of_rows": 808,
+      "datahub": {
+        "derivedFrom": [
+          "monthly"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/1742d194e238ea61d0112a65726bbd01.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "b388e71630d68280cc678e6e94cd825e",
+      "mediatype": "text/csv",
+      "name": "monthly_csv",
+      "path": "https://pkgstore.datahub.io/core/bond-yields-us-10y/monthly_csv/data/b388e71630d68280cc678e6e94cd825e/monthly_csv.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 808,
+      "schema": {
+        "fields": [
+          {
+            "descriptor": "Date in ISO 8601",
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "description": "Percent per year",
+            "format": "default",
+            "groupChar": "",
+            "name": "Rate",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 43692,
+      "count_of_rows": 808,
+      "datahub": {
+        "derivedFrom": [
+          "monthly"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/1742d194e238ea61d0112a65726bbd01.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "216cf74b1d210338816ade152dd627b4",
+      "mediatype": "text/csv",
+      "name": "monthly_json",
+      "path": "https://pkgstore.datahub.io/core/bond-yields-us-10y/monthly_json/data/216cf74b1d210338816ade152dd627b4/monthly_json.json",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "rowcount": 808,
+      "schema": {
+        "fields": [
+          {
+            "descriptor": "Date in ISO 8601",
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "description": "Percent per year",
+            "format": "default",
+            "groupChar": "",
+            "name": "Rate",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 13890,
+      "datahub": {
+        "type": "derived/zip"
+      },
+      "description": "Compressed versions of dataset. Includes normalized CSV and JSON data with original data and datapackage.json.",
+      "dpp:streamedFrom": "/tmp/619.bond-yields-us-10y.zip",
+      "format": "zip",
+      "name": "bond-yields-us-10y_zip",
+      "path": "https://pkgstore.datahub.io/core/bond-yields-us-10y/bond-yields-us-10y_zip/data/0f684fb171b8be152a59417f4482bbbe/bond-yields-us-10y_zip.zip",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 13819,
+      "count_of_rows": 808,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "caseSensitiveHeader": false,
+        "delimiter": ",",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/1742d194e238ea61d0112a65726bbd01.csv",
+      "encoding": "ISO-8859-2",
+      "format": "csv",
+      "hash": "b388e71630d68280cc678e6e94cd825e",
+      "mediatype": "text/csv",
+      "name": "monthly",
+      "path": "https://pkgstore.datahub.io/core/bond-yields-us-10y/monthly/archive/1742d194e238ea61d0112a65726bbd01/monthly.csv",
+      "pathType": "local",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "descriptor": "Date in ISO 8601",
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "description": "Percent per year",
+            "format": "default",
+            "groupChar": "",
+            "name": "Rate",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    }
+  ],
+  "sources": [
+    {
+      "name": "Federal Reserve (Release H.15)",
+      "path": "http://www.federalreserve.gov/releases/h15/data.htm",
+      "title": "Federal Reserve (Release H.15)"
+    }
+  ],
+  "title": "10 year US Government Bond Yields (long-term interest rate)",
+  "version": "0.2.0",
+  "views": [
+    {
+      "name": "graph",
+      "spec": {
+        "group": "Date",
+        "series": [
+          "Rate"
+        ],
+        "type": "line"
+      },
+      "specType": "simple",
+      "title": "10 year US Government Bond Yields (Monthly granuarlity)"
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-monthly_csv_preview",
+      "resources": [
+        "monthly"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    }
+  ]
+}

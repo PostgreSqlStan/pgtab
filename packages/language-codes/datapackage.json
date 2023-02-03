@@ -1,0 +1,711 @@
+{
+  "datahub": {
+    "created": "2017-11-09T01:16:43.362463",
+    "findability": "published",
+    "flowid": "core/language-codes/34",
+    "hash": "024073b2645b00d6c78348df560c9d0c",
+    "modified": "2020-08-28T09:21:17.298792",
+    "owner": "core",
+    "ownerid": "core",
+    "stats": {
+      "bytes": 335615,
+      "rowcount": 1645
+    }
+  },
+  "id": "core/language-codes",
+  "licenses": [
+    {
+      "name": "ODC-PDDL-1.0",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License v1.0"
+    }
+  ],
+  "name": "language-codes",
+  "readme": "Comprehensive language code information, consisting of ISO 639-1, ISO 639-2 and IETF language types.\n\n## Data\n\nData is taken from the [Library of Congress](http://www.loc.gov/standards/iso639-2/iso639-2ra.html) as the ISO 639-2 Registration Authority, and from the [Unicode Common Locale Data Repository](http://cldr.unicode.org/).\n\n### data/language-codes.csv \n\nThis file contains the 184 languages with __ISO 639-1__ (alpha 2 / two letter) codes and their English names.\n\n### data/language-codes-3b2.csv \n\nThis file contains the 184 languages with both __ISO 639-2__ (alpha 3 / three letter) bibliographic codes and ISO 639-1 codes, and their English names.\n\n### data/language-codes-full.csv\n\nThis file is more exhaustive.\n\nIt contains all languages with __ISO 639-2__ (alpha 3 / three letter) codes, the respective ISO 639-1 codes (if present), as well as the English and French name of each language.\n\nThere are two versions of the three letter codes: bibliographic and terminologic. Each language has a bibliographic code but only a few languages have terminologic codes. Terminologic codes are chosen to be similar to the corresponding ISO 639-1 two letter codes.\n\nExample from [Wikipedia](https://en.wikipedia.org/wiki/ISO_639#Relations_between_the_parts):\n> [...] the German language (Part 1: `de`) has two codes in Part 2: `ger` (T code) and `deu` (B code), whereas there is only one code in Part 2, `eng`, for the English language.\n\nThere are four special codes: *mul*, *und*, *mis*, *zxx*; and a reserved range *qaa-qtz*.\n\n### data/ietf-language-tags.csv\n\nThis file lists all IETF language tags of the official resource indicated by http://www.iana.org/assignments/language-tag-extensions-registry \nthat into the `/main` folder of http://www.unicode.org/Public/cldr/latest/core.zip (project [cldr.unicode.org](http://cldr.unicode.org)).\n\n## Preparation\n\nThis package includes a bash script to fetch current language code information and adjust the formatting.\nThe file `ietf-language-tags.csv` is obtained with `ietf-lanGen.php`.\n\n## License\n\nThis material is licensed by its maintainers under the [Public Domain Dedication and License (PDDL)](http://opendatacommons.org/licenses/pddl/1.0/).\n\nNevertheless, it should be noted that this material is ultimately sourced from the Library of Congress as a Registration Authority for ISO and their licensing policies are somewhat unclear. As this is a short, simple database of facts, there is a strong argument that no rights can subsist in this collection.\n\nHowever, if you intended to use these data in a public or commercial product, please check the original sources for any specific restrictions.\n",
+  "related": [
+    {
+      "formats": [
+        "CSV",
+        "JSON"
+      ],
+      "path": "/core/country-list",
+      "publisher": "core",
+      "title": "List of all countries (ISO 3166-1)"
+    },
+    {
+      "formats": [
+        "CSV",
+        "JSON"
+      ],
+      "path": "/core/country-codes",
+      "publisher": "core",
+      "title": "Country codes"
+    },
+    {
+      "formats": [
+        "CSV",
+        "JSON"
+      ],
+      "path": "/core/continent-codes",
+      "publisher": "core",
+      "title": "Continent codes"
+    },
+    {
+      "formats": [
+        "CSV",
+        "JSON"
+      ],
+      "path": "/core/un-locode",
+      "publisher": "core",
+      "title": "UN-LOCODE Codelist"
+    }
+  ],
+  "resources": [
+    {
+      "bytes": 1872,
+      "datahub": {
+        "type": "derived/report"
+      },
+      "description": "Validation report for tabular data",
+      "dpp:streamedFrom": "validation_report.json",
+      "format": "json",
+      "hash": "b7b1287e7e9e06fe0d218e2b135006fb",
+      "name": "validation_report",
+      "path": "https://pkgstore.datahub.io/core/language-codes/validation_report/data/b7b1287e7e9e06fe0d218e2b135006fb/validation_report.json",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 2796,
+      "datahub": {
+        "derivedFrom": [
+          "language-codes"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/e368f1485c4d8403ed6a67e176de6e87.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "d63f5134ff40a3e45acc019b0ba156ca",
+      "mediatype": "text/csv",
+      "name": "language-codes_csv",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes_csv/data/d63f5134ff40a3e45acc019b0ba156ca/language-codes_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 184,
+      "schema": {
+        "fields": [
+          {
+            "description": "2 letter alpha-2 code",
+            "name": "alpha2",
+            "type": "string"
+          },
+          {
+            "description": "English name of language",
+            "name": "English",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 3541,
+      "datahub": {
+        "derivedFrom": [
+          "language-codes-3b2"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/853803b8281824ac734a4db1f13761e4.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "2811c6a1abe8eaf215a1c418b406cade",
+      "mediatype": "text/csv",
+      "name": "language-codes-3b2_csv",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes-3b2_csv/data/2811c6a1abe8eaf215a1c418b406cade/language-codes-3b2_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 184,
+      "schema": {
+        "fields": [
+          {
+            "description": "3 letter alpha-3 bibliographic code",
+            "name": "alpha3-b",
+            "type": "string"
+          },
+          {
+            "description": "2 letter alpha-2 code",
+            "name": "alpha2",
+            "type": "string"
+          },
+          {
+            "description": "English name of language",
+            "name": "English",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 16301,
+      "datahub": {
+        "derivedFrom": [
+          "language-codes-full"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/3ec804c65dc4407137bc83213a41034c.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "a2b63fb5b59bb34ed76d610bf751392b",
+      "mediatype": "text/csv",
+      "name": "language-codes-full_csv",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes-full_csv/data/a2b63fb5b59bb34ed76d610bf751392b/language-codes-full_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 487,
+      "schema": {
+        "fields": [
+          {
+            "description": "3 letter alpha-3 bibliographic code",
+            "name": "alpha3-b",
+            "type": "string"
+          },
+          {
+            "description": "3 letter alpha-3 terminologic code (when given)",
+            "name": "alpha3-t",
+            "type": "string"
+          },
+          {
+            "description": "2 letter alpha-2 code (when given)",
+            "name": "alpha2",
+            "type": "string"
+          },
+          {
+            "description": "English name of language",
+            "name": "English",
+            "type": "string"
+          },
+          {
+            "description": "French name of language",
+            "name": "French",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 24979,
+      "datahub": {
+        "derivedFrom": [
+          "ietf-language-tags"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/842d2addf9dbfd43397d837093e67b66.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "0f1fc01d4d78c0b703c7b5980979720d",
+      "mediatype": "text/csv",
+      "name": "ietf-language-tags_csv",
+      "note": "obtained from main folder of core.zip at http://www.unicode.org/Public/cldr",
+      "path": "https://pkgstore.datahub.io/core/language-codes/ietf-language-tags_csv/data/0f1fc01d4d78c0b703c7b5980979720d/ietf-language-tags_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 790,
+      "schema": {
+        "fields": [
+          {
+            "description": "IANA/Unicode language-tag-extension",
+            "name": "lang",
+            "type": "string"
+          },
+          {
+            "description": "ISO 2 letter alpha-2 language code",
+            "name": "langType",
+            "type": "string"
+          },
+          {
+            "description": "ISO3166-1-Alpha-2 country code or cldr territory code where 001 is the World and 150 is Europe",
+            "name": "territory",
+            "type": "string"
+          },
+          {
+            "description": "revision date (format ISO data)",
+            "name": "revGenDate",
+            "type": "string"
+          },
+          {
+            "description": "number of definitions",
+            "name": "defs",
+            "type": "integer"
+          },
+          {
+            "description": "indicate the default-language, as unicode-cldr",
+            "name": "dftLang",
+            "type": "boolean"
+          },
+          {
+            "description": "file-name of the locale descriptor",
+            "name": "file",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 7749,
+      "datahub": {
+        "derivedFrom": [
+          "language-codes"
+        ],
+        "type": "derived/json"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/e368f1485c4d8403ed6a67e176de6e87.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "97607046542b532c395cf83df5185246",
+      "mediatype": "text/csv",
+      "name": "language-codes_json",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes_json/data/97607046542b532c395cf83df5185246/language-codes_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 184,
+      "schema": {
+        "fields": [
+          {
+            "description": "2 letter alpha-2 code",
+            "name": "alpha2",
+            "type": "string"
+          },
+          {
+            "description": "English name of language",
+            "name": "English",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 11245,
+      "datahub": {
+        "derivedFrom": [
+          "language-codes-3b2"
+        ],
+        "type": "derived/json"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/853803b8281824ac734a4db1f13761e4.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "3d37ea0e5aa45a469879af23cb9b83be",
+      "mediatype": "text/csv",
+      "name": "language-codes-3b2_json",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes-3b2_json/data/3d37ea0e5aa45a469879af23cb9b83be/language-codes-3b2_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 184,
+      "schema": {
+        "fields": [
+          {
+            "description": "3 letter alpha-3 bibliographic code",
+            "name": "alpha3-b",
+            "type": "string"
+          },
+          {
+            "description": "2 letter alpha-2 code",
+            "name": "alpha2",
+            "type": "string"
+          },
+          {
+            "description": "English name of language",
+            "name": "English",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 52239,
+      "datahub": {
+        "derivedFrom": [
+          "language-codes-full"
+        ],
+        "type": "derived/json"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/3ec804c65dc4407137bc83213a41034c.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "573588525f24edb215c07bec3c309153",
+      "mediatype": "text/csv",
+      "name": "language-codes-full_json",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes-full_json/data/573588525f24edb215c07bec3c309153/language-codes-full_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 487,
+      "schema": {
+        "fields": [
+          {
+            "description": "3 letter alpha-3 bibliographic code",
+            "name": "alpha3-b",
+            "type": "string"
+          },
+          {
+            "description": "3 letter alpha-3 terminologic code (when given)",
+            "name": "alpha3-t",
+            "type": "string"
+          },
+          {
+            "description": "2 letter alpha-2 code (when given)",
+            "name": "alpha2",
+            "type": "string"
+          },
+          {
+            "description": "English name of language",
+            "name": "English",
+            "type": "string"
+          },
+          {
+            "description": "French name of language",
+            "name": "French",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 98876,
+      "datahub": {
+        "derivedFrom": [
+          "ietf-language-tags"
+        ],
+        "type": "derived/json"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/842d2addf9dbfd43397d837093e67b66.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "d29e9efc1b91bb7aba6e1eb6eeccdb0c",
+      "mediatype": "text/csv",
+      "name": "ietf-language-tags_json",
+      "note": "obtained from main folder of core.zip at http://www.unicode.org/Public/cldr",
+      "path": "https://pkgstore.datahub.io/core/language-codes/ietf-language-tags_json/data/d29e9efc1b91bb7aba6e1eb6eeccdb0c/ietf-language-tags_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "rowcount": 790,
+      "schema": {
+        "fields": [
+          {
+            "description": "IANA/Unicode language-tag-extension",
+            "name": "lang",
+            "type": "string"
+          },
+          {
+            "description": "ISO 2 letter alpha-2 language code",
+            "name": "langType",
+            "type": "string"
+          },
+          {
+            "description": "ISO3166-1-Alpha-2 country code or cldr territory code where 001 is the World and 150 is Europe",
+            "name": "territory",
+            "type": "string"
+          },
+          {
+            "description": "revision date (format ISO data)",
+            "name": "revGenDate",
+            "type": "string"
+          },
+          {
+            "description": "number of definitions",
+            "name": "defs",
+            "type": "integer"
+          },
+          {
+            "description": "indicate the default-language, as unicode-cldr",
+            "name": "dftLang",
+            "type": "boolean"
+          },
+          {
+            "description": "file-name of the locale descriptor",
+            "name": "file",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 66684,
+      "datahub": {
+        "type": "derived/zip"
+      },
+      "description": "Compressed versions of dataset. Includes normalized CSV and JSON data with original data and datapackage.json.",
+      "dpp:streamedFrom": "/tmp/9.language-codes.zip",
+      "format": "zip",
+      "name": "language-codes_zip",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes_zip/data/cd8103a199e1cf43c37313c74a713a29/language-codes_zip.zip",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 3339,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/e368f1485c4d8403ed6a67e176de6e87.csv",
+      "encoding": "UTF-8",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "language-codes",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes/archive/e368f1485c4d8403ed6a67e176de6e87/language-codes.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "description": "2 letter alpha-2 code",
+            "name": "alpha2",
+            "type": "string"
+          },
+          {
+            "description": "English name of language",
+            "name": "English",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 4454,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/853803b8281824ac734a4db1f13761e4.csv",
+      "encoding": "UTF-8",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "language-codes-3b2",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes-3b2/archive/853803b8281824ac734a4db1f13761e4/language-codes-3b2.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "description": "3 letter alpha-3 bibliographic code",
+            "name": "alpha3-b",
+            "type": "string"
+          },
+          {
+            "description": "2 letter alpha-2 code",
+            "name": "alpha2",
+            "type": "string"
+          },
+          {
+            "description": "English name of language",
+            "name": "English",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 20513,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/3ec804c65dc4407137bc83213a41034c.csv",
+      "encoding": "UTF-8",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "language-codes-full",
+      "path": "https://pkgstore.datahub.io/core/language-codes/language-codes-full/archive/3ec804c65dc4407137bc83213a41034c/language-codes-full.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "description": "3 letter alpha-3 bibliographic code",
+            "name": "alpha3-b",
+            "type": "string"
+          },
+          {
+            "description": "3 letter alpha-3 terminologic code (when given)",
+            "name": "alpha3-t",
+            "type": "string"
+          },
+          {
+            "description": "2 letter alpha-2 code (when given)",
+            "name": "alpha2",
+            "type": "string"
+          },
+          {
+            "description": "English name of language",
+            "name": "English",
+            "type": "string"
+          },
+          {
+            "description": "French name of language",
+            "name": "French",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 21027,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/842d2addf9dbfd43397d837093e67b66.csv",
+      "encoding": "ISO-8859-1",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "ietf-language-tags",
+      "note": "obtained from main folder of core.zip at http://www.unicode.org/Public/cldr",
+      "path": "https://pkgstore.datahub.io/core/language-codes/ietf-language-tags/archive/842d2addf9dbfd43397d837093e67b66/ietf-language-tags.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "description": "IANA/Unicode language-tag-extension",
+            "name": "lang",
+            "type": "string"
+          },
+          {
+            "description": "ISO 2 letter alpha-2 language code",
+            "name": "langType",
+            "type": "string"
+          },
+          {
+            "description": "ISO3166-1-Alpha-2 country code or cldr territory code where 001 is the World and 150 is Europe",
+            "name": "territory",
+            "type": "string"
+          },
+          {
+            "description": "revision date (format ISO data)",
+            "name": "revGenDate",
+            "type": "string"
+          },
+          {
+            "description": "number of definitions",
+            "name": "defs",
+            "type": "integer"
+          },
+          {
+            "description": "indicate the default-language, as unicode-cldr",
+            "name": "dftLang",
+            "type": "boolean"
+          },
+          {
+            "description": "file-name of the locale descriptor",
+            "name": "file",
+            "type": "string"
+          }
+        ]
+      },
+      "signed": true
+    }
+  ],
+  "sources": [
+    {
+      "name": "Library of Congress",
+      "path": "http://www.loc.gov/standards/iso639-2/iso639jac.html",
+      "title": "Library of Congress"
+    },
+    {
+      "name": "Unicode",
+      "path": "http://cldr.unicode.org/",
+      "title": "Unicode"
+    }
+  ],
+  "title": "ISO Language Codes (639-1 and 693-2) and IETF Language Types",
+  "views": [
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-language-codes_csv_preview",
+      "resources": [
+        "language-codes"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-language-codes-3b2_csv_preview",
+      "resources": [
+        "language-codes-3b2"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-language-codes-full_csv_preview",
+      "resources": [
+        "language-codes-full"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    },
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-ietf-language-tags_csv_preview",
+      "resources": [
+        "ietf-language-tags"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    }
+  ]
+}

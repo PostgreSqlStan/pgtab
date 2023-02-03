@@ -1,0 +1,315 @@
+{
+  "datahub": {
+    "created": "2017-11-09T01:05:14.686695",
+    "findability": "published",
+    "flowid": "core/world-cities/8",
+    "hash": "7d015cb7f268d2a22b30640903ed24ee",
+    "modified": "2018-08-06T09:01:55.457142",
+    "owner": "core",
+    "ownerid": "core",
+    "stats": {
+      "bytes": 5896544,
+      "rowcount": 23018
+    }
+  },
+  "description": "List of the world's major cities (above 15,000 inhabitants)",
+  "homepage": "http://github.com/datasets/world-cities",
+  "id": "core/world-cities",
+  "keywords": [
+    "geodata",
+    "city"
+  ],
+  "licensces": [
+    {
+      "name": "ODC-PDDL-1.0",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License v1.0"
+    }
+  ],
+  "name": "world-cities",
+  "readme": "List of major cities in the world\n\n## Data\n\nThe data is extracted from [geonames][geonames], a very exhaustive list of worldwide toponyms.\n\nThis [datapackage][datapackage] only list cities above 15,000 inhabitants. Each city is associated with its \ncountry and subcountry to reduce the number of ambiguities. Subcountry can be the name of a state (eg in \nUnited Kingdom or the United States of America) or the major administrative section (eg ''region'' in France''). \nSee ``admin1`` field on [geonames website][geonames] for further info about subcountry.\n\nNotice that :\n* some cities like *Vatican city* or *Singapore* are a whole state so they don't belong to any subcountry. Therefore subcountry is ``N/A``.\n* There is no guaranty that a city has a unique name in a country and subcountry (At the time of writing, there are about 60 ambiguities). But for each city, \nthe source data primary key ``geonameid`` is provided.\n\n[geonames]: http://www.geonames.org/\n[datapackage]: http://dataprotocols.org/data-packages/\n\n\n## Preparation\n\nYou can run the script yourself to update the data and publish them to github : see [scripts README](scripts/README.md)\n\n## License\n\nAll data is licensed under the [Creative Common Attribution License][CC] as is the original data from [geonames][geonames]. This means you have to credit [geonames][geonames] when using the data. And while no credit is formally required a link back or credit to [Lexman][lexman] and the [Open Knowledge Foundation][okfn] is much appreciated.\n\nAll source code is licensed under the [MIT licence][mit].\n\n[CC]: http://creativecommons.org/licenses/by/3.0/\n[mit]: https://opensource.org/licenses/MIT\n[geonames]: http://www.geonames.org/\n[pddl]: http://opendatacommons.org/licenses/pddl/1.0/\n[lexman]: http://github.com/lexman\n[okfn]: http://okfn.org/\n\n\n\n\n",
+  "related": [
+    {
+      "formats": [
+        "CSV",
+        "JSON"
+      ],
+      "path": "/core/country-list",
+      "publisher": "core",
+      "title": "Country list"
+    },
+    {
+      "formats": [
+        "CSV",
+        "JSON"
+      ],
+      "path": "/core/continent-codes",
+      "publisher": "core",
+      "title": "Continent codes"
+    },
+    {
+      "formats": [
+        "CSV",
+        "JSON"
+      ],
+      "path": "/core/airport-codes",
+      "publisher": "core",
+      "title": "Airport codes"
+    },
+    {
+      "formats": [
+        "CSV",
+        "JSON"
+      ],
+      "path": "/core/language-codes",
+      "publisher": "core",
+      "title": "Language codes"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/datasets/world-cities.git"
+  },
+  "resources": [
+    {
+      "bytes": 597,
+      "datahub": {
+        "type": "derived/report"
+      },
+      "description": "Validation report for tabular data",
+      "dpp:streamedFrom": "validation_report.json",
+      "format": "json",
+      "hash": "5ed340dbd834706a01e30dd54a758b54",
+      "name": "validation_report",
+      "path": "https://pkgstore.datahub.io/core/world-cities/validation_report/data/5ed340dbd834706a01e30dd54a758b54/validation_report.json",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 895586,
+      "datahub": {
+        "derivedFrom": [
+          "world-cities"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/03dbc01dd64a4b5860b65230fd82d8cd.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "6cc66692f0e82b18216a48443b6b95da",
+      "mediatype": "text/csv",
+      "name": "world-cities_csv",
+      "path": "https://pkgstore.datahub.io/core/world-cities/world-cities_csv/data/6cc66692f0e82b18216a48443b6b95da/world-cities_csv.csv",
+      "pathType": "local",
+      "primaryKey": "geonamesid",
+      "profile": "data-resource",
+      "rowcount": 23018,
+      "schema": {
+        "fields": [
+          {
+            "description": "English name of the city",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "description": "Common name of the country, in english",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "Name of the major administrative area",
+            "name": "subcountry",
+            "type": "string"
+          },
+          {
+            "description": "id from geonames",
+            "name": "geonameid",
+            "type": "integer"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 2225561,
+      "datahub": {
+        "derivedFrom": [
+          "world-cities"
+        ],
+        "type": "derived/json"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/03dbc01dd64a4b5860b65230fd82d8cd.csv",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "5b3dd46ad10990bca47b04b4739a02ba",
+      "mediatype": "text/csv",
+      "name": "world-cities_json",
+      "path": "https://pkgstore.datahub.io/core/world-cities/world-cities_json/data/5b3dd46ad10990bca47b04b4739a02ba/world-cities_json.json",
+      "pathType": "local",
+      "primaryKey": "geonamesid",
+      "profile": "data-resource",
+      "rowcount": 23018,
+      "schema": {
+        "fields": [
+          {
+            "description": "English name of the city",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "description": "Common name of the country, in english",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "Name of the major administrative area",
+            "name": "subcountry",
+            "type": "string"
+          },
+          {
+            "description": "id from geonames",
+            "name": "geonameid",
+            "type": "integer"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 811504,
+      "datahub": {
+        "type": "derived/zip"
+      },
+      "description": "Compressed versions of dataset. Includes normalized CSV and JSON data with original data and datapackage.json.",
+      "dpp:streamedFrom": "/tmp/408.world-cities.zip",
+      "format": "zip",
+      "name": "world-cities_zip",
+      "path": "https://pkgstore.datahub.io/core/world-cities/world-cities_zip/data/63a0f075be2e1f2e7f9068ecb745a218/world-cities_zip.zip",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 1090728,
+      "datahub": {
+        "derivedFrom": [
+          "world-cities"
+        ],
+        "type": "derived/preview"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmpujwuw078/core/world-cities/world-cities_csv/data/6cc66692f0e82b18216a48443b6b95da/world-cities_csv.csv",
+      "encoding": "utf-8",
+      "forView": [
+        "datahub-preview-world-cities_csv_preview"
+      ],
+      "format": "json",
+      "hash": "3d2b714c7fa2d24162a1853a92ebd2a7",
+      "mediatype": "text/csv",
+      "name": "world-cities_csv_preview",
+      "path": "https://pkgstore.datahub.io/core/world-cities/world-cities_csv_preview/data/3d2b714c7fa2d24162a1853a92ebd2a7/world-cities_csv_preview.json",
+      "pathType": "local",
+      "primaryKey": "geonamesid",
+      "profile": "data-resource",
+      "rowcount": 25018,
+      "schema": {
+        "fields": [
+          {
+            "description": "English name of the city",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "description": "Common name of the country, in english",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "Name of the major administrative area",
+            "name": "subcountry",
+            "type": "string"
+          },
+          {
+            "description": "id from geonames",
+            "name": "geonameid",
+            "type": "integer"
+          }
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 872568,
+      "datahub": {
+        "type": "source/tabular"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/03dbc01dd64a4b5860b65230fd82d8cd.csv",
+      "encoding": "UTF-8",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "world-cities",
+      "path": "https://pkgstore.datahub.io/core/world-cities/world-cities/archive/03dbc01dd64a4b5860b65230fd82d8cd/world-cities.csv",
+      "pathType": "local",
+      "primaryKey": "geonamesid",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "description": "English name of the city",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "description": "Common name of the country, in english",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "Name of the major administrative area",
+            "name": "subcountry",
+            "type": "string"
+          },
+          {
+            "description": "id from geonames",
+            "name": "geonameid",
+            "type": "integer"
+          }
+        ]
+      },
+      "signed": true
+    }
+  ],
+  "sources": [
+    {
+      "name": "Geonames",
+      "path": "http://www.geonames.org/",
+      "title": "Geonames"
+    }
+  ],
+  "title": "Major cities of the world",
+  "views": [
+    {
+      "datahub": {
+        "type": "preview"
+      },
+      "name": "datahub-preview-world-cities_csv_preview",
+      "resources": [
+        "world-cities"
+      ],
+      "specType": "table",
+      "transform": {
+        "limit": 2000
+      }
+    }
+  ]
+}
