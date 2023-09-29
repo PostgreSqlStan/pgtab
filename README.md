@@ -79,7 +79,7 @@ pgtab=> table _ls;
 
 ## `go()` – a psql UI
 
-Other schemas (`pgtab_p`, `pgtab_r`, 'pgtab_f') are used by the `go` procedure, which makes it easy to examine and edit selected package items with psql without repeatedly typing `WHERE` qualifiers, joins, or specifying columns.
+Other schemas (`pgtab_p`, `pgtab_r`, `pgtab_f`) are used by the `go` procedure, which makes it easy to examine and edit selected package items with psql without repeatedly typing `WHERE` qualifiers, joins, or specifying columns.
 
 :grey_exclamation: This procedure relies on session settings and is unlikely to work with most external tools.
 
